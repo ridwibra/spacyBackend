@@ -4,6 +4,9 @@ import spacy
 
 app = FastAPI()
 
+# Download the model at runtime
+spacy.cli.download("en_core_web_sm")
+
 # Load the spacy model
 nlp = spacy.load("en_core_web_sm")
 
