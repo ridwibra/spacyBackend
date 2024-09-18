@@ -1,6 +1,6 @@
 {
   "build": {
-    "builder": "python",
+    "builder": "python:3.9",
     "commands": ["pip install -r requirements.txt"]
   },
   "start": {
