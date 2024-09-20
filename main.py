@@ -1,4 +1,3 @@
-from fastapi.middleware.cors import CORSMiddleware
 import os
 import spacy
 from fastapi import FastAPI, HTTPException
@@ -6,13 +5,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Adjust this to your needs
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 # Download the model at runtime
 spacy.cli.download("en_core_web_sm")
 
