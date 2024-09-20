@@ -13,6 +13,10 @@ nlp = spacy.load("en_core_web_sm")
 class TextRequest(BaseModel):
     text: str
 
+@app.get("/")
+async def welcome():
+    return "Welcome to Spacy Backend API"
+
 @app.post("/analyze")
 async def analyze_text(request: TextRequest):
     text = request.text
