@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import spacy
-import logging
+
 
 app = FastAPI()
 
@@ -15,7 +15,7 @@ class TextRequest(BaseModel):
     text: str
 
 
-logging.basicConfig(level=logging.INFO)
+
 
 
 @app.get("/")
