@@ -1,7 +1,7 @@
+import os
+import spacy
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import spacy
-
 
 app = FastAPI()
 
@@ -13,10 +13,6 @@ nlp = spacy.load("en_core_web_sm")
 
 class TextRequest(BaseModel):
     text: str
-
-
-
-
 
 @app.get("/")
 async def welcome():
@@ -41,3 +37,8 @@ async def analyze_text(request: TextRequest):
     ]
 
     return {"result": result}
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
