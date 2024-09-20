@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import spacy
+import logging
 
 app = FastAPI()
 
@@ -12,6 +13,10 @@ nlp = spacy.load("en_core_web_sm")
 
 class TextRequest(BaseModel):
     text: str
+
+
+logging.basicConfig(level=logging.INFO)
+
 
 @app.get("/")
 async def welcome():
